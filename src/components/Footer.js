@@ -2,10 +2,9 @@ import '../App.css';
 
 function Header() {
   return (
-    <div className='hf'>
-      <h1>all rights reserved</h1>
+    <div className='footer'>
+      <h1>all rights reserved by Wlla Talafha</h1>
     </div>
   )
 }
-
 export default Header;

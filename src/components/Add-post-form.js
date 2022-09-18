@@ -1,29 +1,21 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import axios from "axios";
 
-function AddPostForm(props) {
-
-  return (
-    <Form onSubmit={props.addPostfunction}>
-      <Form.Group>
-        <Form.Label>Post Title : </Form.Label>
-        <Form.Control type="text" id='titleId' placeholder="Write a title" />        
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>Post Content : </Form.Label>
-        <Form.Control type="text" id='contentId' placeholder="What's on your mind" />
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Check type="checkbox" id='statusId' label="reviewed" />
-      </Form.Group>
-      <br></br>
-      <Button type="submit" >
-        Post
-      </Button>
-    </Form>   
-  );
+function AddPostForm({reload}) {
+    async function AddPost(e){
+        e.preventDefault();
+        const postData = {
+            postTitle: e.target.postTitle.value ,
+            postContent: e.target.postContent.value
+        }
+        await axios.post(`${process.env.REACT_APP_URL}/post`,postData)
+        reload();
+    }
+    return (
+        <form className="AddPostForm" onSubmit={AddPost}>
+            <input type="text" id="postTitle" placeholder="write the post title ..." /><br></br>
+            <input type="text" id="postContent" placeholder="write a post ..." /><br></br><br></br>
+            <input type="submit" id="postSubmit" />
+        </form>
+    )
 }
-
 export default AddPostForm;

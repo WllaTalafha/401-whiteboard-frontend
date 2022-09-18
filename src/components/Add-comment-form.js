@@ -1,24 +1,25 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import axios from "axios";
 
-function AddCommentForm(props) {
+function AddCommentForm({ reload, commentData, postID }) {
+  async function postComment(e) {
+    e.preventDefault();
+    const commentData = {
+      commentContent: e.target.commentContent.value,
+      commentID: postID
+    }
+    await axios.post(`${process.env.REACT_APP_URL}/comment/${postID}`, commentData);
+    reload();
+  }
   return (
-    <Form onSubmit={props.addCommentfunction}>
-      <Form.Group>
-        <Form.Label>Comment Content : </Form.Label>
-        <Form.Control type="text"  id='contentId' placeholder="Write a comment" />        
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>Add to the post number : </Form.Label>
-        <Form.Control type="text"  id='commentId' placeholder="What's on your mind" />
-      </Form.Group>
-      <br></br>
-      <Button type="submit">
-        Post
-      </Button>
-    </Form>   
-  );
+    <>
+      <div>
+        {commentData.map((item, index) => <div key={index}><p>{item.commentContent}</p><hr></hr></div>)}
+      </div><br></br>
+      <form className="addCommentForm" onSubmit={postComment}>
+        <input type='text' id="commentContent" placeholder='write a commnet ...'></input>
+        <input type='submit' id="commentSubmit" value='post'></input>
+      </form>
+    </>
+  )
 }
-
-export default AddCommentForm;
+export default AddCommentForm; 
