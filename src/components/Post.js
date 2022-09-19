@@ -27,8 +27,8 @@ function Post() {
 
   return (
     <div className="post">
-      <AddPostForm reload={reload}/>
-      <PostCard data={data} reload={reload}/>
+      <AddPostForm reload={reload} />
+      <PostCard data={data} reload={reload} />
     </div>
   )
 }

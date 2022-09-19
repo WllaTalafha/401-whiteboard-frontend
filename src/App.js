@@ -7,18 +7,15 @@ import Log from './components/log/Log';
 function App() {
   return (
     <Router>
-    <div>
-      
-      <Header />
-      <Routes>
-      <Route exact path="/" element={<Log/>}/>
-      <Route exact path="/app" element={<Post/>}></Route>      
-      </Routes>
-      <Footer />
-      
-    </div>
+      <div>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Log />} />
+          <Route exact path="/app" element={<Post />} />
+        </Routes>
+        <Footer />
+      </div>
     </Router>
   )
 }
-
 export default App;
