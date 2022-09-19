@@ -1,15 +1,11 @@
-function Signin (props){
-    function login (){
-        props.signin();
-        // props.open(()=>{props.history.push("/app")})
-    }
-    return(
-        <form onSubmit={login}>
-            <input type="text" placeholder="Enter a username" name="username"/>
-            <input type="text" placeholder="Enter a password" name="password"/>
-            <input type="submit" value="login"/>
+function Signin({signin}) {
+
+    return (        
+        <form className="signin" onSubmit={signin}>
+            <input type="text" placeholder="Enter your username" id="username" />
+            <input type="text" placeholder="Enter your password" id="password" />
+            <input type="submit" value="login" id="submit" />
         </form>
     )
-    // props.signin && props.open(()=>{props.history.push("/app")})
 }
 export default Signin;

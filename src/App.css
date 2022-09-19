@@ -20,7 +20,7 @@
   color: azure;
 }
 
-.post , .cards{
+.post , .cards {
   display: flex;
   flex-wrap: wrap;
   margin: 50px 50px 50px 50px ;
@@ -31,7 +31,7 @@
   overflow: auto;
 }
 
-.post {
+.post,.logs {
   border-top: 10px #FF7F00 solid ; 
   border-left: 10px #FF7F00 solid ; 
   border-bottom: 10px #E4287C solid ; 
@@ -121,3 +121,42 @@
   font-size: 20px;
   padding: 10px;
   }
+
+.log{
+  border: 10px #E4287C solid; 
+  background-color: #e4287d7e;
+  padding: 70px;
+  display: flex;
+  flex-wrap: wrap;;
+  align-items: center;
+  color:azure;
+  width: 1009px;
+  margin: 10px;
+}
+
+
+
+#username, #password, #email, #submit{
+  border-radius: 10px;
+  border: 5px #E4287C solid; 
+  background-color: #e4287d7e;
+  color: azure;
+  margin: 4px ;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.logs{
+  margin : 50px;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+}
+.signin{
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.signuo{
+  margin-top: 10px;
+}
