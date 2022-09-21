@@ -2,15 +2,18 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import PostCard from "./PostCard";
 import AddPostForm from "./Add-post-form";
+import cookies from "react-cookies";
 
-function Post() {
+function Post({setlogged,logged}) {
   let [data, setData] = useState([]);
 
   useEffect(() => {
+    const token = cookies.load("token");
+    if (token) setlogged(true);
     getData().then((resolve) => {
       setData(resolve);
     });
-  }, []);
+  });
 
   async function reload() {
     getData().then((resolve) => {
@@ -19,9 +22,13 @@ function Post() {
   };
 
   async function getData() {
-    const getData = await axios.get(`${process.env.REACT_APP_URL}/post`);
+    const token = cookies.load("token");
+    if (token) {
+      let bearer = { headers: { Authorization: `Bearer ${token}` } };
+    const getData = await axios.get(`${process.env.REACT_APP_URL}/post`,bearer);
     const recievedData = getData.data;
     return recievedData;
+  }
   };
 
 

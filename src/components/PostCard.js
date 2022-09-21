@@ -1,9 +1,12 @@
 import axios from 'axios';
 import AddCommentForm from './Add-comment-form';
+import cookies from "react-cookies";
 
 function PostCard({ data, reload }) {
     async function deletePost(postID){
-        await axios.delete(`${process.env.REACT_APP_URL}/post/${postID}`);
+        const token = cookies.load("token");
+        let bearer = { headers: { Authorization: `Bearer ${token}` } };
+        await axios.delete(`${process.env.REACT_APP_URL}/post/${postID}`,bearer);
         reload();
     }
     return (

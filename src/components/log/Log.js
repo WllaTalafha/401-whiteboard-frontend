@@ -1,12 +1,11 @@
 import axios from "axios";
-import { useState } from "react";
 import base64 from 'base-64';
 import Signup from './Signup';
 import Signin from './Signin';
 import { Navigate } from 'react-router-dom';
+import cookies from "react-cookies";
 
-function Log() {
-    const [logged, setlogged] = useState(false);
+function Log({setlogged,logged}) {
 
     async function signup(e) {
         e.preventDefault();
@@ -35,13 +34,16 @@ function Log() {
             }
         }).then(resolved =>{
             if (userInfo.username){
+            cookies.save("token", resolved.data.token);
+            cookies.save("name", resolved.data.username);
             setlogged(true);
             console.log(resolved.data);
             }
         }).catch(rejected =>{ 
             console.log(rejected.response.data);
         });
-    }    
+    }  
+
     console.log(logged);
     return (
         <div className="logs">
