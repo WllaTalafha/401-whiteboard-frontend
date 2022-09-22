@@ -5,12 +5,10 @@ import AddPostForm from "./Add-post-form";
 import cookies from "react-cookies";
 
 function Post({setlogged,logged}) {
-  let [data, setData] = useState([]);
-
+  let [data, setData] = useState([]); 
+ 
   useEffect(() => {
-    const token = cookies.load("token");
-    if (token) setlogged(true);
-    getData().then((resolve) => {
+      getData().then((resolve) => {
       setData(resolve);
     });
   });
@@ -23,8 +21,9 @@ function Post({setlogged,logged}) {
 
   async function getData() {
     const token = cookies.load("token");
-    if (token) {
-      let bearer = { headers: { Authorization: `Bearer ${token}` } };
+    let bearer = { headers: { Authorization: `Bearer ${token}` } };    
+    if (token ) {   
+    setlogged(true);
     const getData = await axios.get(`${process.env.REACT_APP_URL}/post`,bearer);
     const recievedData = getData.data;
     return recievedData;

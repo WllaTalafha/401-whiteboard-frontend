@@ -160,3 +160,22 @@
 .signuo{
   margin-top: 10px;
 }
+
+#logout{
+  border-radius: 10px;
+  border: 5px azure solid; 
+  background-color: #e4287d7e;
+  color: azure;
+  margin: 20px 50px;
+  position: absolute;
+  right:0px;
+  top:0px;
+  font-size: 20px;
+  padding: 10px;
+}
+#welcome{
+  color: azure;
+  margin: 20px 50px;
+  font-size: 20px;
+}
+ 
