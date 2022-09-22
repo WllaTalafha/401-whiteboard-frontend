@@ -14,7 +14,7 @@ function PostCard({ data, reload }) {
             {data.map((item, index) => {
                 return (
                     <div className="postCard" key={index}>
-                        <button id='delete' onClick={()=>deletePost(item.id)}>X</button>
+                        <button id='delete' onClick={()=>deletePost(item.id)}>x</button>
                         <h2>{item.postTitle}</h2>
                         <br></br>
                         <h3>{item.postContent}</h3>
