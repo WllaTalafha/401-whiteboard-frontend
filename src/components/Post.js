@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import PostCard from "./PostCard";
 import AddPostForm from "./Add-post-form";
 import cookies from "react-cookies";
+import { AuthContext } from '../components/contexs/AuthProvider';
+import { useContext } from 'react';
 
-function Post({setlogged,logged}) {
+function Post() {
+  const { logged, setlogged } = useContext(AuthContext);
   let [data, setData] = useState([]); 
  
   useEffect(() => {

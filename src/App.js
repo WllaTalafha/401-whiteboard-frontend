@@ -1,24 +1,25 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Post from './components/Post';
 import Log from './components/log/Log';
+import AuthProvider from './components/contexs/AuthProvider';
 
-function App() {  
-  const [logged, setlogged] = useState(false);
-  
+function App() {
+
   return (
-    <Router>
-      <div>
-        <Header logged={logged} setlogged={setlogged}/>
-        <Routes>
-          <Route exact path="/" element={<Log logged={logged} setlogged={setlogged}/>} />
-          <Route exact path="/app" element={<Post logged={logged} setlogged={setlogged}/>} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div>
+          <Header />
+          <Routes>
+            <Route exact path="/" element={<Log />} />
+            <Route exact path="/app" element={<Post />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
   )
 }
 export default App;

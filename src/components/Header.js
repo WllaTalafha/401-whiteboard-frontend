@@ -1,8 +1,12 @@
 import '../App.css';
 import cookies from "react-cookies";
 import { Navigate } from 'react-router-dom';
+import { AuthContext } from '../components/contexs/AuthProvider';
+import { useContext } from 'react';
 
-function Header({logged,setlogged}) {
+function Header() {
+  const { logged, setlogged } = useContext(AuthContext);
+  
   const username =cookies.load("name");
   function logout() {
     cookies.remove("token");
