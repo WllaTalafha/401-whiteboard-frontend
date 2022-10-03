@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import PostCard from "./PostCard";
 import AddPostForm from "./Add-post-form";
 import cookies from "react-cookies";
-import { AuthContext } from '../contexs/AuthProvider';
+import { AuthContext } from '../components/contexs/AuthProvider';
 import { useContext } from 'react';
 
 function Post() {

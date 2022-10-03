@@ -1,7 +1,7 @@
 import '../App.css';
 import cookies from "react-cookies";
 import { Navigate } from 'react-router-dom';
-import { AuthContext } from '../contexs/AuthProvider';
+import { AuthContext } from '../components/contexs/AuthProvider';
 import { useContext } from 'react';
 
 function Header() {

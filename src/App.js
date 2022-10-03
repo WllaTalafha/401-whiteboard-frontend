@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Post from './components/Post';
 import Log from './components/log/Log';
-import AuthProvider from './contexs/AuthProvider';
+import AuthProvider from './components/contexs/AuthProvider';
 
 function App() {
 
