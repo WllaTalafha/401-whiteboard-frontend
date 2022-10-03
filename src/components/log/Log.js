@@ -4,8 +4,12 @@ import Signup from './Signup';
 import Signin from './Signin';
 import { Navigate } from 'react-router-dom';
 import cookies from "react-cookies";
+import { AuthContext } from '../contexs/AuthProvider';
+import { useContext } from 'react';
 
-function Log({ setlogged, logged }) {
+function Log() {
+
+    const { logged, setlogged } = useContext(AuthContext);
 
     async function signup(e) {
         e.preventDefault();
